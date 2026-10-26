@@ -1,0 +1,77 @@
+# Pages CMS 管理后台配置；使用 GitHub 授权，无需在公开网站中保存密钥。
+media:
+  input: images
+  output: images
+  extensions: [jpg, jpeg, png, webp, gif]
+content:
+  - name: settings
+    label: 网站内容与价格
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: siteTitle
+        label: 网站标题
+        type: string
+      - name: intro
+        label: 首页介绍
+        type: text
+      - name: prices
+        label: 服务价格
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} · {price}"
+        fields:
+          - name: name
+            label: 服务名称
+            type: string
+          - name: price
+            label: 价格
+            type: string
+          - name: detail
+            label: 详细说明
+            type: text
+      - name: rules
+        label: 下单须知
+        type: string
+        list: true
+      - name: services
+        label: 其他接单范围
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: 分类名称
+            type: string
+          - name: detail
+            label: 分类说明
+            type: text
+  - name: gallery
+    label: 作品图片与分类
+    type: file
+    path: gallery.json
+    format: json
+    list: true
+    fields:
+      - name: category
+        label: 作品分类
+        type: select
+        options:
+          values:
+            - "3D · 男崽"
+            - "3D · 女崽"
+            - "3D · 小崽"
+            - "3D · 亚文化"
+            - "2D · 男崽"
+            - "2D · 女崽"
+            - "2D · 小崽"
+            - "2D · 亚文化"
+      - name: image
+        label: 图片路径（images/文件名.webp）
+        type: string
+        description: 图片文件可先从媒体库上传；这里填写 images/ 开头的相对路径。
