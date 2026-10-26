@@ -75,3 +75,40 @@ content:
         label: 作品图片
         type: image
         description: 可从媒体库选择已有图片或上传新图片。
+
+  - name: service_catalog
+    label: 三大类服务与详情页
+    type: file
+    path: services.json
+    format: json
+    list: true
+    fields:
+      - name: slug
+        label: 页面标识（zepeto / modeling / writing）
+        type: string
+      - name: name
+        label: 大类名称
+        type: string
+      - name: description
+        label: 大类介绍
+        type: text
+      - name: notes
+        label: 接单说明
+        type: text
+      - name: items
+        label: 小类项目
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} · {price}"
+        fields:
+          - name: name
+            label: 项目名称
+            type: string
+          - name: description
+            label: 项目介绍
+            type: text
+          - name: price
+            label: 价格（未定可填价格待定）
+            type: string
