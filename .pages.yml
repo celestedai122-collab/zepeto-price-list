@@ -72,6 +72,6 @@ content:
             - "2D · 小崽"
             - "2D · 亚文化"
       - name: image
-        label: 图片路径（images/文件名.webp）
-        type: string
-        description: 图片文件可先从媒体库上传；这里填写 images/ 开头的相对路径。
+        label: 作品图片
+        type: image
+        description: 可从媒体库选择已有图片或上传新图片。
